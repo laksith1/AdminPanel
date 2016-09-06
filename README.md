@@ -1,2 +1,2 @@
 # AdminPanel
-An administrative panel for the senz switch. This will b used to make configurations, rweove shares, add shares,add attributes etc.
+An administrative panel for the senz switch. This will be used to make configurations, remove shares, add shares,add attributes etc.This interface is written in NodeJs, ExpressJs framework and uses jade.
