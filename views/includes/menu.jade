@@ -1,0 +1,9 @@
+.menu
+  ul.nav.nav-pills.navbar.navbar-dark.bg-inverse
+   if (admin)
+      li(class=(menu === 'admin')?'active':'')
+        a(href="/admin") Configurations
+      li(class=(menu === 'edituser')?'active':'')
+        a(href="/edituser") Change Password
+      li
+        a(href="/logout") Log out
