@@ -3,8 +3,8 @@ An administrative panel for the senz switch. This will be used to make configura
 
 #First Install Nodejs and set the Environment
 
-sudo apt-get install build-essential checkinstall
-sudo apt-get install libssl-dev
+sudo apt-get install build-essential checkinstall/n
+sudo apt-get install libssl-dev/n
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 nvm install 5.0
 nvm use 5.0
