@@ -1,0 +1,6 @@
+{
+    "_id" : ObjectId("5799987132c9f4fd700bc21e"),
+    "admin" : true,
+    "password" : "$2a$10$Li0QrkKWIepJmfyOZ61AJOSldzOpC.vzf5MU7SVDPRw7CyU5fQDy2",
+    "username" : "admin"
+}
