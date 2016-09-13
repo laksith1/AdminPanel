@@ -1,10 +1,9 @@
 {
-  "name": "blog-express",
+  "name": "AdminPanel",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha test"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
@@ -14,6 +13,5 @@
     "jade": "^1.11.0",
     "mongodb": "^2.2.9",
     "mongoskin": "^2.1.0"
-
   }
 }
