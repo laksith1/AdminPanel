@@ -3,11 +3,6 @@ var mongoskin = require('mongoskin')
 
 
 
-
-
-
-
-
 /*
 GET delete attributes permissions from list
 */
