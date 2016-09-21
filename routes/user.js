@@ -3,6 +3,11 @@ var mongoskin = require('mongoskin')
 
 
 
+
+
+
+
+
 /*
 GET delete attributes permissions from list
 */
@@ -64,10 +69,6 @@ exports.deluser = function(req,res,next) {
 
 
     };
-
-
-
-
 
 
 
