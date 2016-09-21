@@ -1,0 +1,74 @@
+extends layout
+
+block page
+  - var menu = 'admin'
+block content
+  div
+    include includes/menu
+
+  div= error
+  div.admin
+    if (users.length === 0 )
+
+        | Nothing to display. No users are registered in the system
+    else
+        p
+        table.table.table-bordered(style='width:100%')
+            tr
+                th Users
+                th Action
+                th Served Attributes
+                th Permitted Attributes
+            each user, index in users
+                if (user.name === 'homepi')
+                    tr
+                        td  <h3 class="text-primary">#{user.name}</h3>
+                        td
+                            form(action="/deluser/id/#{user._id}/name/#{user.name}", method='GET')
+                                button.btn.btn-danger(type='submit') Delete User
+                        td
+                            p
+                              button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#{user.name}', aria-expanded='false', aria-controls='collapseExample')
+                                | Show Attributes
+                            #{user.name}.collapse
+                               .card.card-block
+                                  each attr, index in user
+                                        if (index !== "pubkey" && index !== "senze" && index !== "signature" && index !== "_id" && index !== "name" && index !== "phone")
+                                           p= index
+
+                        td
+                else
+
+                    tr
+                        td <h3 class="text-primary">#{user.name}</h3>
+                        td
+                            form(action="/deluser/id/#{user._id}/name/#{user.name}", method='GET')
+                                button.btn.btn-danger(type='submit') Delete User
+
+                        td
+
+                        td
+                            p
+                              button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#{user.name}', aria-expanded='false', aria-controls='collapseExample')
+                                | Show Attributes
+                            #{user.name}.collapse
+                               .card.card-block
+                                    each attr, index in user
+                                       if (index === "homepi")
+                                            each val in attr
+                                                | #{val} of <strong>#{index}</strong>
+                                                form(action="/delattr/name/#{user.name}/attr/#{val}", method='GET')
+                                                    button.btn.btn-danger(type='submit') Delete
+
+
+
+
+
+
+
+
+
+
+
+
+

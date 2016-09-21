@@ -12,63 +12,42 @@ block content
 
         | Nothing to display. No users are registered in the system
     else
-        p
-        table.table.table-bordered(style='width:100%')
-            tr
-                th Users
-                th Action
-                th Served Attributes
-                th Permitted Attributes
-            each user, index in users
-                if (user.name === 'homepi')
-                    tr
-                        td  <h3 class="text-primary">#{user.name}</h3>
-                        td
-                            form(action="/deluser/id/#{user._id}/name/#{user.name}", method='GET')
-                                button.btn.btn-danger(type='submit') Delete User
-                        td
-                            p
-                              button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#{user.name}', aria-expanded='false', aria-controls='collapseExample')
-                                | Show Attributes
-                            #{user.name}.collapse
-                               .card.card-block
-                                  each attr, index in user
-                                        if (index !== "pubkey" && index !== "senze" && index !== "signature" && index !== "_id" && index !== "name" && index !== "phone")
-                                           p= index
+        - var prepopulate = []
+        each user, index in users
+            - prepopulate.push(user.name)
 
-                        td
-                else
-
-                    tr
-                        td <h3 class="text-primary">#{user.name}</h3>
-                        td
-                            form(action="/deluser/id/#{user._id}/name/#{user.name}", method='GET')
-                                button.btn.btn-danger(type='submit') Delete User
-
-                        td
-
-                        td
-                            p
-                              button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#{user.name}', aria-expanded='false', aria-controls='collapseExample')
-                                | Show Attributes
-                            #{user.name}.collapse
-                               .card.card-block
+        #container
+            ul
+                li(data-jstree='{ "selected" : true, "opened" : true , "icon" : "glyphicon glyphicon-flash"}') SENZ SWITCH
+                    each user in users
+                        ul
+                            li(data-jstree='{"icon" : "glyphicon glyphicon-user"}')
+                                | #{user.name}
+                                ul
                                     each attr, index in user
-                                       if (index === "homepi")
-                                            each val in attr
-                                                | #{val} of <strong>#{index}</strong>
-                                                form(action="/delattr/name/#{user.name}/attr/#{val}", method='GET')
-                                                    button.btn.btn-danger(type='submit') Delete
+                                        if (index !== "pubkey" && index !== "senze" && index !== "signature" && index !== "_id" && index !== "name" && index !== "phone" )
+                                            - var nash = 0
+                                            each j in prepopulate
+
+                                                if (index == j)
+                                                    - nash  = 1
+                                            if (nash == 0)
+                                                li(data-jstree='{"icon" : "glyphicon glyphicon-signal"}')
+                                                    | #{index}
+                                                    ul
+                                                        each val in attr
+                                                            li(data-jstree='{"icon" : "glyphicon glyphicon-user"}')
+                                                                | #{val}
 
 
 
 
 
 
-
-
-
-
+        script.
+            $(function () {
+                $('#container').jstree();
+            });
 
 
 
