@@ -23,6 +23,8 @@ block content
                         ul
                             li(data-jstree='{"icon" : "glyphicon glyphicon-user"}')
                                 | #{user.name}
+
+
                                 ul
                                     each attr, index in user
                                         if (index !== "pubkey" && index !== "senze" && index !== "signature" && index !== "_id" && index !== "name" && index !== "phone" )
